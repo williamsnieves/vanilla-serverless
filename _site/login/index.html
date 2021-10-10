@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Masters: Serverless with Jason Lengstorf · Learn With Jason</title>
+    <link rel="stylesheet" href="https://use.typekit.net/jwa3agu.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+  </head>
+  <body>
+    <style>
+  .lwj-demo-header {
+    background: var(--black);
+    font-family: var(--font-family);
+    position: relative;
+  }
+
+  .lwj-demo-header .logo-wrapper {
+    align-items: center;
+    display: flex;
+    height: 56px;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    position: relative;
+    width: 100vw;
+  }
+
+  .lwj-demo-header .logo-wrapper::after {
+    background-image: linear-gradient(
+      255deg,
+      var(--black) 0%,
+      var(--black-transparent) 30%
+    );
+    bottom: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    z-index: 10;
+  }
+
+  .lwj-demo-header .logo {
+    display: block;
+    height: auto;
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 250ms ease-out;
+    width: 55px;
+    z-index: 15;
+  }
+
+  .lwj-demo-header .logo::after {
+    background: var(--white);
+    border: 1px solid var(--dark-gray);
+    border-radius: 0.25rem;
+    color: var(--dark-gray);
+    content: 'Check out Learn With Jason!';
+    display: block;
+    left: -0.5rem;
+    opacity: 0;
+    padding: 0.5rem;
+    position: absolute;
+    text-align: center;
+    top: 98%;
+    transition: opacity 300ms linear;
+    width: 230px;
+  }
+
+  .lwj-demo-header .logo:active,
+  .lwj-demo-header .logo:focus,
+  .lwj-demo-header .logo:hover {
+    transform: rotate(0deg);
+  }
+
+  .lwj-demo-header .logo:active::after,
+  .lwj-demo-header .logo:focus::after,
+  .lwj-demo-header .logo:hover::after {
+    opacity: 1;
+  }
+
+  .lwj-demo-header .logo img {
+    display: block;
+    width: 100%;
+  }
+
+  .lwj-demo-header .home-link {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 900;
+    margin-left: 0.75rem;
+    position: relative;
+    text-decoration: none;
+    z-index: 15;
+  }
+
+  .lwj-demo-header #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .lwj-demo-header .top-bar {
+    animation: gradient-roll 20s linear infinite alternate;
+    background-image: var(--lwj-gradient);
+    background-size: 200%;
+    border-bottom: 0.5px solid var(--light-gray);
+    height: 9px;
+    position: relative;
+    top: 100%;
+    width: 100vw;
+    z-index: 5;
+  }
+
+  .lwj-demo-header .top-bar::before,
+  .lwj-demo-header .top-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100vw;
+  }
+
+  .lwj-demo-header .top-bar::before {
+    bottom: 1px;
+    height: 0.5px;
+    background-color: var(--light-gray);
+  }
+
+  .lwj-demo-header .top-bar::after {
+    bottom: 0;
+    height: 1px;
+    background-color: var(--black);
+  }
+</style>
+
+<header class="lwj-demo-header">
+  <div class="logo-wrapper">
+    <canvas id="canvas" width="300" height="56"></canvas>
+    <a href="https://www.learnwithjason.dev" class="logo"
+      ><img src="/images/learn-with-jason-dark.svg" alt="Learn With Jason"
+    /></a>
+    <a href="/" rel="home" class="home-link">
+      Frontend Masters: Serverless with Jason Lengstorf
+    </a>
+  </div>
+
+  <div class="top-bar"></div>
+</header>
+
+<script type="module">
+  import { startAnimation } from '/js/dots.js';
+
+  startAnimation();
+</script>
+
+
+    <main>
+      <style>
+  .netlify-identity-button {
+    background: var(--pink);
+    border: 0;
+    border-radius: 0.25rem;
+    color: var(--white);
+    display: block;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 300px;
+  }
+</style>
+
+    </main>
+
+    <style>
+  .lwj-demo-footer {
+    background: var(--black);
+    color: var(--light-gray);
+    font-family: var(--font-family);
+    padding: 1rem 5vw;
+    position: relative;
+    text-align: center;
+  }
+
+  .lwj-demo-footer a {
+    color: inherit;
+    display: block;
+    font-size: 0.75rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+  }
+
+  .lwj-demo-footer a:active,
+  .lwj-demo-footer a:focus,
+  .lwj-demo-footer a:hover {
+    color: var(--pink-text);
+  }
+
+  .lwj-demo-footer .bottom-bar {
+    animation: gradient-roll 20s linear infinite alternate;
+    background-image: var(--lwj-gradient);
+    background-size: 200%;
+    border-bottom: 0.5px solid var(--light-gray);
+    bottom: 100%;
+    height: 6px;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    z-index: 5;
+  }
+
+  .lwj-demo-footer .bottom-bar::before,
+  .lwj-demo-footer .bottom-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100vw;
+  }
+
+  .lwj-demo-footer .bottom-bar::before {
+    top: 1px;
+    height: 0.5px;
+    background-color: var(--light-gray);
+  }
+
+  .lwj-demo-footer .bottom-bar::after {
+    top: 0;
+    height: 1px;
+    background-color: var(--black);
+  }
+
+  @media (min-width: 770px) {
+    .lwj-demo-footer {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+
+    .lwj-demo-footer a {
+      display: inline-block;
+    }
+  }
+</style>
+
+<footer class="lwj-demo-footer">
+  <!-- <a href="https://www.learnwithjason.dev"
+    >Created on <em>Learn With Jason</em></a
+  > -->
+  <a href="https://github.com/jlengstorf/frontendmasters-serverless"
+    >Source Code</a
+  >
+  <!-- <a
+    href="http://app.netlify.com/start/deploy?repository=https://github.com/jlengstorf/frontendmasters-serverless?utm_source=learnwithjason&utm_medium=lwj-demo-footer-jl&utm_campaign=devex"
+    >Deploy Your Own Copy</a
+  > -->
+
+  <div class="bottom-bar"></div>
+</footer>
+
+  </body>
+</html>
